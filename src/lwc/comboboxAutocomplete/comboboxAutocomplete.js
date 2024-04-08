@@ -92,4 +92,15 @@ export default class ComboboxAutocomplete extends LightningElement {
     handleBlur() {
         this.isFocussed = false;
     }
+
+    @api selectedValue;
+
+    @api
+    clearSelection() {
+        this.selectedValue = '';
+        this.value = ''; 
+        this.filteredOptions = [...this.options]; 
+        this.dispatchEvent(new CustomEvent('clear'));
+    }
+
 }
